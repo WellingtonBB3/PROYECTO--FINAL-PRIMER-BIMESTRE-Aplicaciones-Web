@@ -1,4 +1,4 @@
-# PROYECTO--FINAL-PRIMER-BIMESTRE-Aplicaciones-Web
+
 # Proyecto Final — Primer Bimestre · Aplicaciones Web
 
 Juego de plataformas 2D desarrollado con **Phaser 3** y **Vite**, ambientado en los íconos turísticos de **Guayaquil, Ecuador**. El jugador recorre tres niveles de dificultad creciente, cada uno con una mecánica diferente, música de fondo y efectos de sonido.
