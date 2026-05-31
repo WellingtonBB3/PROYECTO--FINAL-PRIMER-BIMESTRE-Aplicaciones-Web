@@ -3,7 +3,7 @@
 
 Juego de plataformas 2D desarrollado con **Phaser 3** y **Vite**, ambientado en los íconos turísticos de **Guayaquil, Ecuador**. El jugador recorre tres niveles de dificultad creciente, cada uno con una mecánica diferente, música de fondo y efectos de sonido.
 
-**Video de demostración:** https://www.youtube.com/watch?v=0eFydbKJnCo
+**Video de demostración:** https://www.youtube.com/watch?v=ETk2Jt7UIj4
 
 ---
 
