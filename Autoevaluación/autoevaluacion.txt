@@ -1,0 +1,37 @@
+1. Descripcion del proyecto
+El proyecto consiste en un juego de plataformas 2D desarrollado con Phaser 3 y Vite, ambientado en los iconos turisticos de Guayaquil. Comprende tres niveles con mecanicas distintas: eliminacion de enemigos (Malecon), esquivar proyectiles (Cerro Santa Ana) y esquivar objetos en caida (Bahia). El juego incluye sistema de puntuacion, vidas, pausa, musica, efectos de sonido y controles tanto para escritorio como para movil.
+2. Rubrica de autoevaluacion
+Criterio	Descripcion y evidencia	Puntaje
+Funcionalidad del juego	Los tres niveles se ejecutan correctamente. Las mecanicas de cada nivel (enemigos, proyectiles, cajas) funcionan sin errores criticos. Las pantallas de Game Over, Pausa y Victoria responden segun la condicion correspondiente.	9 / 10
+Uso correcto de Phaser 3	Se utilizaron escenas, fisica Arcade, grupos de objetos, animaciones por frames, camaras con seguimiento y colisiones. La arquitectura modular separa logica, objetos, managers y UI de forma coherente con las buenas practicas del framework.	9 / 10
+Diseño y experiencia de usuario	Los fondos representan lugares reales de Guayaquil. El HUD muestra vidas y puntaje de forma clara. Los controles tactiles permiten jugar en movil. La escala de la interfaz se adapta al tamano de pantalla mediante uiScale.	10 / 10
+Estructura y organizacion del codigo	El proyecto esta organizado en carpetas tematicas (scenes/, objects/, managers/, physics/, ui/). Cada archivo tiene una responsabilidad unica. Se usan ES Modules y se evita la duplicacion de logica mediante managers compartidos.	9 / 10
+Persistencia de datos	El High Score y el nivel mas alto alcanzado se guardan en localStorage a traves de StorageManager. El estado se muestra en el menu principal al reiniciar el juego. La partida actual se resetea correctamente sin borrar el historial.	8 / 10
+Gestion de audio	La musica de fondo se reproduce en bucle y se puede silenciar con el boton de mute. Hay efectos de sonido para salto y colision. El estado de mute persiste entre escenas mediante AudioManager.	8 / 10
+Compatibilidad movil	Se implementaron controles tactiles con TouchControls.js que se muestran automaticamente. El canvas escala con Phaser.Scale.RESIZE. Las posiciones y tamanos de elementos se calculan proporcionalmente al viewport.	7 / 10
+Documentacion	El repositorio incluye un README con guia de ejecucion, descripcion de controles, estructura del proyecto, niveles, sistema de puntuacion y creditos. El codigo cuenta con comentarios en los puntos clave de cada escena.	9 / 10
+TOTAL	Puntaje acumulado sobre 80 puntos posibles	67 / 80
+
+3. Fortalezas
+Arquitectura modular clara: La separacion entre escenas, objetos, managers, fisica y UI facilita el mantenimiento y la extension del proyecto. Agregar un nuevo nivel o comportamiento no requiere modificar archivos no relacionados.
+Mecanicas variadas por nivel: Cada nivel tiene una logica propia (persecucion, esquivar balas, esquivar cajas), lo que aporta variedad al jugador y demuestra dominio de diferentes sistemas de Phaser como grupos de fisicas, colisiones por overlap y timers.
+Escalabilidad responsive: El juego calcula posiciones y tamanos proporcionalmente al viewport mediante uiScale, lo que permite que funcione correctamente en distintas resoluciones y dispositivos sin requerir configuracion adicional.
+Persistencia funcional: El uso de localStorage para guardar el high score y el progreso permite que el jugador retome su estado entre sesiones, aportando una experiencia mas completa.
+
+4. Limitaciones
+Ausencia de niveles de dificultad configurables: La velocidad de los enemigos y la frecuencia de aparicion de obstaculos son fijos. No existe un sistema de dificultad progresiva dentro de cada nivel ni la posibilidad de seleccionar dificultad desde el menu.
+Un solo tipo de enemigo: El Nivel 1 presenta unicamente al ladron (Thief) como enemigo. La incorporacion de variantes con distintos comportamientos habria enriquecido la jugabilidad.
+Sin animacion en proyectiles ni cajas: Las balas del Nivel 2 y las cajas del Nivel 3 no tienen animacion propia, lo que reduce el impacto visual de esos elementos.
+Falta de pantalla de seleccion de nivel: Una vez completado un nivel, no es posible volver a jugarlo individualmente sin reiniciar la partida completa desde el menu principal.
+
+5. Mejoras futuras
+•	Implementar un sistema de dificultad progresiva que incremente la velocidad de enemigos y la frecuencia de obstaculos conforme avanza el tiempo o el puntaje.
+•	Agregar mas tipos de enemigos con comportamientos distintos (enemigo que dispara, enemigo que salta, patron de patrulla) para aumentar la variedad del Nivel 1.
+•	Incluir animaciones para los proyectiles y las cajas, y efectos de particulas al momento de la colision para mejorar el feedback visual al jugador.
+•	Desarrollar una pantalla de seleccion de nivel que permita al jugador volver a jugar cualquier nivel desbloqueado sin reiniciar la partida desde el inicio.
+•	Agregar un sistema de power-ups (vida extra, escudo temporal, velocidad) que aparezcan de forma aleatoria durante los niveles.
+•	Publicar el build de produccion en una plataforma de hosting estatico como GitHub Pages o Netlify para facilitar el acceso sin necesidad de clonar el repositorio.
+
+6. Reflexion final
+El desarrollo de este proyecto permitio aplicar de forma practica los conceptos de programacion orientada a objetos, gestion de estado, fisica de videojuegos y diseno de interfaces responsivas dentro del contexto de aplicaciones web. La eleccion de Phaser 3 como motor fue adecuada para el alcance del proyecto, aunque su curva de aprendizaje inicial requirio dedicar tiempo a comprender su ciclo de vida de escenas y el sistema de fisica Arcade.
+La mayor dificultad encontrada fue lograr que el juego funcionara correctamente en diferentes tamanos de pantalla, lo cual se resolvio mediante el calculo proporcional de posiciones y el uso de Phaser.Scale.RESIZE. A futuro, se buscaria implementar tests automatizados para la logica de juego y separar aun mas la configuracion de parametros del codigo de comportamiento.
