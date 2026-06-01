@@ -11,6 +11,7 @@ export function registerPauseControls(scene) {
 
   const openPause = () => {
     if (!scene.scene.isActive()) return;
+    if (scene.scene.isActive('PauseMenu')) return;
     scene.scene.launch('PauseMenu', { returnScene: scene.sys.settings.key });
     scene.scene.pause();
   };
@@ -25,6 +26,9 @@ export function registerPauseControls(scene) {
   btn.on('pointerdown', openPause);
 
   scene.input.keyboard?.on('keydown-ESC', openPause);
+  scene.events.once('shutdown', () => {
+    scene.input.keyboard?.off('keydown-ESC', openPause);
+  });
 
   return {
     button: btn,
